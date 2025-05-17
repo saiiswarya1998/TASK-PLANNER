@@ -27,7 +27,7 @@ const register = async (req, res) => {
  
   attachCookiesToResponse({ res, user: tokenUser });
 
-  const origin = 'http://127.0.0.1:5000';
+  const origin = 'https://task-planner-qfru.onrender.com';
 
   await sendVerificationEmail({
     name: user.username,
@@ -202,7 +202,7 @@ const {email, password} = req.body;
   await resetUser.save();
 
 
-  const origin = 'http://127.0.0.1:5000';
+  const origin = 'https://task-planner-qfru.onrender.com';
 
   await sendResetEmail({
     name: resetUser.username,
