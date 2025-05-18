@@ -229,6 +229,10 @@ textarea {
   width: 100%;
   margin-top: 1rem;
 }
+.logout-btn {
+  width: 100%;
+  margin-top: 1rem;
+}
 
 .logout-btn
 {
@@ -246,6 +250,13 @@ textarea {
     border-bottom-left-radius: var(--borderRadius);
   }
   .submit-btn {
+    margin-top: 0;
+    width: 175px;
+    border-radius: 0;
+    border-top-right-radius: var(--borderRadius);
+    border-bottom-right-radius: var(--borderRadius);
+  }
+  .logout-btn {
     margin-top: 0;
     width: 175px;
     border-radius: 0;

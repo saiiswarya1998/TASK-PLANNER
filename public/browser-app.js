@@ -11,7 +11,7 @@ const logoutDOM = document.querySelector('.logout-btn')
 const showTask = async()=>
 {
  
-    loadingDOM.style.visibility = 'visible'
+    loadingDOM.style.display= 'block'
 
     try{
 
@@ -26,8 +26,8 @@ const showTask = async()=>
        
 
        if (data.tasks.length < 1) {
-        tasksDOM.innerHTML = '<h5 class="empty-list">No tasks in your list</h5>'
-        loadingDOM.style.visibility = 'hidden'
+        tasksDOM.innerHTML = '<h5 style="color:white" class="empty-list">No tasks in your list</h5>'
+        loadingDOM.style.display = 'none'
         return
       }
     
@@ -54,6 +54,7 @@ const showTask = async()=>
       .join('')
      
        
+    loadingDOM.style.display = 'none'
     tasksDOM.innerHTML = allTasks
     }
 
@@ -111,7 +112,7 @@ tasksDOM.addEventListener('click', async(e)=>
     const el = e.target
     if(el.parentElement.classList.contains('delete-btn'))
     {
-        loadingDOM.style.visibility = 'visible'
+        loadingDOM.style.visibility = 'block'
         const id = el.parentElement.dataset.id
         try
         {
@@ -145,3 +146,25 @@ logoutDOM.addEventListener('click', async(e)=>
         }
 
 })
+
+const logout = async()=>
+{
+    try
+        {
+        await axios.delete(`/api/v1/auth/logout`)
+        setTimeout(() => {
+        location.href="/index.html"
+  }, 1000)
+        }
+        catch(error)
+        {
+            console.log(error)
+        }
+
+}
+const offtime = 7200000;
+
+setTimeout(() => {
+        logout()
+  }, offtime)
+
