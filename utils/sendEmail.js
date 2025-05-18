@@ -5,7 +5,7 @@ const sendEmail = async ({name, email, html, message}) => {
 
   const msg = {
     to: email, // Change to your recipient
-    from: 'testingteddy193@gmail.com', // Change to your verified sender
+    from: 'taskplanner2025@gmail.com', // Change to your verified sender
     subject: `Task Planner of ${name}`,
     text: 'Please find the task planner',
     html : `<h4> Hello, ${name}</h4>
