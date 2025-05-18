@@ -54,6 +54,7 @@ const login = async(req,res)=>
 
   const user = await User.findOne({email});
 
+
   if(!user)
   {
     throw new CustomError.UnauthenticatedError('Invalid credentials');
@@ -66,6 +67,13 @@ const login = async(req,res)=>
     throw new CustomError.UnauthenticatedError('Invalid Credentials');
   }
 
+  const isVerified = user.isVerified
+
+  if(!isVerified)
+  {
+    throw new CustomError.UnauthenticatedError('User not Verified');
+  }
+  
   const tokenUser = createTokenUser(user);
 
 
